@@ -15,6 +15,11 @@ import { AgmCoreModule } from '@agm/core';
 import { DigitransitService } from './services/digitransit.service';
 import { RouteDirectionPipe } from './pipes/route-direction.pipe';
 import { PiippuPipe } from './pipes/piippu.pipe';
+// import {MatButtonModule, MatCheckboxModule, MatCheckbox} from '@angular/material';
+// import {NoopAnimationsModule} from '@angular/platform-browser/animations';
+// import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import { FlexLayoutModule } from "@angular/flex-layout";
+import { MatTabsModule } from "@angular/material";
 
 
 
@@ -25,7 +30,7 @@ import { PiippuPipe } from './pipes/piippu.pipe';
     SetupComponent,
     RoutesComponent,
     RouteDirectionPipe,
-    PiippuPipe
+    PiippuPipe,
   ],
   imports: [
     BrowserModule, 
@@ -34,7 +39,10 @@ import { PiippuPipe } from './pipes/piippu.pipe';
     AppRoutingModule,
     AgmCoreModule.forRoot({
       apiKey: 'AIzaSyAB0SNaQU7HYpkKZ1UhPLX-2h4qksU_738'
-    })
+    }),
+    FlexLayoutModule,
+    MatTabsModule
+
   ],
   providers: [DigitransitService],
   bootstrap: [AppComponent]

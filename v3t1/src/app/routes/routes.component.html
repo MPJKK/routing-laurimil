@@ -1,20 +1,26 @@
 
 
 <article *ngFor="let pysakki of reittiData">
-  <h2>Pysäkin {{pysakki.name}} reittitiedot</h2>
 
-  <agm-map [latitude]="pysakki.lat" [longitude]="pysakki.lon" [zoom]="15">
-    <agm-marker [latitude]="pysakki.lat" [longitude]="pysakki.lon"></agm-marker>
-  </agm-map>
-
-  <ul>
-    <li *ngFor="let reitti of pysakki.routes">
-      <h4>{{reitti.longName}}</h4>
-      <p>Linja: {{reitti.shortName}} RTFS:{{reitti.gtfsId}}</p>
-      <div *ngFor="let suunta of reitti.patterns">
-          <p [class]="suunta.directionId | piippu">Suunta</p>
+  
+    <h2>Pysäkin {{pysakki.name}} reittitiedot</h2>
+    <div fxLayout="row">
+      <div fxFlex="50">
+          <ul>
+          <li *ngFor="let reitti of pysakki.routes">
+            <h4>{{reitti.longName}}</h4>
+            <span>
+                <p [class]="reitti.patterns[0].directionId | piippu">Linja: {{reitti.shortName}}</p>
+            </span>
+            <!-- RTFS:{{reitti.gtfsId}} -->
+          </li>
+        </ul>
       </div>
-    </li>
-  </ul>
+      <div fxFlex="50">
+        <agm-map [latitude]="pysakki.lat" [longitude]="pysakki.lon" [zoom]="15">
+          <agm-marker [latitude]="pysakki.lat" [longitude]="pysakki.lon"></agm-marker>
+        </agm-map>
+      </div>
+  </div>
 
 </article>

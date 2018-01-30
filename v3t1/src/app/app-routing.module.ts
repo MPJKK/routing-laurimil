@@ -5,7 +5,7 @@ import { SetupComponent} from './setup/setup.component';
 
 const routes: Routes = [
   {
-    path:'',
+    path:'setup',
     component: SetupComponent
   },
   {
