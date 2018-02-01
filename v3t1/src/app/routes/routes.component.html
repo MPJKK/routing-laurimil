@@ -1,19 +1,32 @@
 
 
 <article *ngFor="let pysakki of reittiData">
-
   
-    <h2>Pysäkin {{pysakki.name}} reittitiedot</h2>
+  <mat-expansion-panel>
+    <mat-expansion-panel-header>
+      <mat-panel-title>
+        <h2>Pysäkin {{pysakki.name}} reittitiedot</h2>
+      </mat-panel-title>
+    </mat-expansion-panel-header>
+      
     <div fxLayout="row">
       <div fxFlex="50">
-          <ul>
-          <li *ngFor="let reitti of pysakki.routes">
-            <h4>{{reitti.longName}}</h4>
-            <span>
-                <p [class]="reitti.patterns[0].directionId | piippu">Linja: {{reitti.shortName}}</p>
-            </span>
+        <ul>
+          <mat-list *ngFor="let reitti of pysakki.routes">
+            <mat-list-item><h4>{{reitti.longName}}</h4></mat-list-item>
+            <mat-list-item>
+              <span>
+              
+              <p [class]="reitti.patterns[0].directionId | piippu">
+                <mat-icon>{{reitti.patterns[0].directionId | routeDirection}}</mat-icon>
+                Linja: {{reitti.shortName}}
+                
+
+              </p>
+              
+            </span></mat-list-item>
             <!-- RTFS:{{reitti.gtfsId}} -->
-          </li>
+          </mat-list>
         </ul>
       </div>
       <div fxFlex="50">
@@ -21,6 +34,6 @@
           <agm-marker [latitude]="pysakki.lat" [longitude]="pysakki.lon"></agm-marker>
         </agm-map>
       </div>
-  </div>
-
+    </div>
+  </mat-expansion-panel>
 </article>

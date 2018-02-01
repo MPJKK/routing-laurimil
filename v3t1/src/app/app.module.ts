@@ -15,12 +15,10 @@ import { AgmCoreModule } from '@agm/core';
 import { DigitransitService } from './services/digitransit.service';
 import { RouteDirectionPipe } from './pipes/route-direction.pipe';
 import { PiippuPipe } from './pipes/piippu.pipe';
-// import {MatButtonModule, MatCheckboxModule, MatCheckbox} from '@angular/material';
-// import {NoopAnimationsModule} from '@angular/platform-browser/animations';
-// import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import {NoopAnimationsModule} from '@angular/platform-browser/animations';
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import { FlexLayoutModule } from "@angular/flex-layout";
-import { MatTabsModule } from "@angular/material";
-
+import { MatTabsModule, MatExpansionModule, MatListModule, MatFormFieldModule, MatInputModule, MatButtonModule, MatIconModule } from "@angular/material";
 
 
 @NgModule({
@@ -41,8 +39,14 @@ import { MatTabsModule } from "@angular/material";
       apiKey: 'AIzaSyAB0SNaQU7HYpkKZ1UhPLX-2h4qksU_738'
     }),
     FlexLayoutModule,
-    MatTabsModule
-
+    MatTabsModule,
+    MatExpansionModule,
+    MatListModule,
+    MatFormFieldModule,
+    MatInputModule,
+    MatButtonModule,
+    BrowserAnimationsModule,
+    MatIconModule
   ],
   providers: [DigitransitService],
   bootstrap: [AppComponent]
